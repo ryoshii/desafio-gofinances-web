@@ -1,7 +1,13 @@
+import { Link, useLocation } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 interface ContainerProps {
   size?: 'small' | 'large';
+}
+
+interface LinkProps {
+  to?: string;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -33,4 +39,9 @@ export const Container = styled.div<ContainerProps>`
       }
     }
   }
+`;
+
+export const NavLink = styled(Link)<LinkProps>`
+  border-bottom: ${({ to }) =>
+    to === useLocation().pathname ? '3px solid #ff872c ' : '0px'};
 `;
